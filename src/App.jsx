@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import './App.css';
+import '@styles/main.scss';
+import MainLayout from '@components/Layout/Layout';
+
+import Footer from '@components/Footer/Footer';
+import HomePage from '@components/HomePage/HomePage';
+import Info from '@components/Info/Info';
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
         <>
-            <div>Ecommerse</div>
+            <HomePage />
+            <Info />
         </>
     );
 }

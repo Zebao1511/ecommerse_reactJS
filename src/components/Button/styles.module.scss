@@ -1,0 +1,21 @@
+@use '@styles/mixins.module.scss' as *;
+@use '@styles/variables.module.scss' as *;
+
+.btn {
+    // @include btn(176px, 42px, $primary_color, 4px);
+    background-color: $primary_color;
+    border: none;
+    border-radius: 4px;
+    color: $white_color;
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: 300;
+    padding: 13px 45px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: transparent;
+    border: 1px solid $primary_color;
+    color: $primary_color;
+}

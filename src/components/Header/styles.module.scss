@@ -1,0 +1,72 @@
+@use '@styles/mixins.module.scss' as *;
+@use '@styles/variables.module.scss' as *;
+
+.container {
+    @include flex_box_custom(center, center, 0px);
+    background-color: #ebe7e4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.containerHeader {
+    width: 1250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 83px;
+}
+
+.containerBoxIcon {
+    @include flex_box_custom(center, center, 10px);
+    width: fit-content;
+}
+
+.containerBox {
+    @include flex_box_custom(center, center, 20px);
+    width: fit-content;
+}
+
+.containerMenu {
+    @include flex_box_custom(center, center, 40px);
+    width: fit-content;
+    font-size: 15px;
+}
+
+.boxIcon {
+    @include radius_common(50%);
+    @include flex_box_custom(center, center, 0px);
+
+    background-color: $primary_color;
+    width: 26px;
+    height: 26px;
+    // margin-left: 3px;
+    // margin-right: 3px;
+}
+
+.menu {
+    cursor: pointer;
+    padding-top: 10px;
+    font-size: 15px;
+    color: $primary_color;
+}
+
+.menu::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: $primary_color;
+    border-radius: 20px;
+    margin-top: 6px;
+
+    transform-origin: right;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 300ms ease-in-out, opacity 300ms;
+}
+
+.menu:hover::after {
+    opacity: 1;
+    transform: scale(1);
+}
