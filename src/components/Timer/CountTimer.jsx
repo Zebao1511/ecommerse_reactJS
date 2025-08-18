@@ -49,7 +49,7 @@ const CountdownTimer = ({ targetData }) => {
         if (timeLeft[interval] !== undefined) {
             timerComponents.push(
                 <span key={interval} className={box}>
-                    {formatNumber(timeLeft[interval])} {''}
+                    {formatNumber(timeLeft[interval])}{' '}
                     <span className={title}>{interval}</span>{' '}
                 </span>
             );

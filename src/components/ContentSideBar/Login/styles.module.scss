@@ -1,0 +1,43 @@
+@use '@styles/variables.module.scss' as *;
+@use '@styles/mixins.module.scss' as *;
+
+.container {
+    .title {
+        text-align: center;
+        font-size: 18px;
+        color: $third_color;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .inputFrom {
+        margin-bottom: 20px;
+    }
+
+    .boxRememberMe {
+        margin-bottom: 20px;
+        font-size: 14px;
+        span {
+            text-align: center;
+        }
+        input {
+            margin-right: 10px;
+        }
+    }
+
+    .lostPass {
+        @include flex_box_custom(center, center);
+        margin-top: 20px;
+        font-size: 14px;
+
+        &:hover {
+            color: $secondary_color;
+            cursor: pointer;
+        }
+    }
+
+    .btn {
+        margin-top: 20px;
+        width: 100%;
+    }
+}

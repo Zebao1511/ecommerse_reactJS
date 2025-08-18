@@ -1,0 +1,57 @@
+@use '@styles/variables.module.scss' as *;
+@use '@styles/mixins.module.scss' as *;
+
+.container {
+    position: relative;
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #0000004d;
+        z-index: 1000;
+
+        transition: all 0.3s ease-in-out;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 350px;
+        height: 100vh;
+        background-color: white;
+        z-index: 1001;
+        box-sizing: border-box;
+        flex-direction: column;
+        padding: 20px 30px;
+
+        transform: translateX(370px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .sliderSideBar {
+        transform: translateX(0);
+    }
+
+    .boxIcon {
+        @include flex_box_custom(center, center, 0px);
+
+        position: absolute;
+        top: 20px;
+        left: -55px;
+
+        width: 35px;
+        height: 35px;
+        background-color: white;
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ccc;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}

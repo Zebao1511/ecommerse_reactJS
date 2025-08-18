@@ -3,7 +3,7 @@
 
 .container {
     background-image: url('https://xstore.b-cdn.net/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/photo-of-man-wearing-white-hoodie-5474310.jpeg');
-    height: 409px;
+    height: 379px;
     width: calc(100% / 2);
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,5 +26,6 @@
 
 .btn {
     @include flex_box_custom(center, center, 0);
+    margin-top: 20px;
     margin-bottom: 110px;
 }

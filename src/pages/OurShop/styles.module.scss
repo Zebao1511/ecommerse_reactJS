@@ -1,0 +1,115 @@
+@use '@styles/variables.module.scss' as *;
+@use '@styles/mixins.module.scss' as *;
+
+.container {
+    padding-top: 83px;
+
+    .functionBox {
+        @include flex_box_custom(space-between, center, 0px);
+
+        font-size: 14px;
+        color: #888888;
+        padding: 10px 0;
+        font-weight: 300;
+
+        .specialText {
+            color: #333;
+            font-weight: 400;
+        }
+
+        .btnBack {
+            cursor: pointer;
+        }
+    }
+}
+
+.containerBanner {
+    background-image: url('https://xstore.b-cdn.net/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Background.jpeg');
+    height: 279px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .contentBox {
+        @include flex_box_custom(center, center, 0);
+        padding-top: 65px;
+    }
+
+    .contentBox > span {
+        border: 1px solid #e1e1e1;
+    }
+
+    .titleBanner {
+        @include flex_box_custom(center, center, 0);
+        font-size: 28px;
+        font-weight: 400;
+        color: $text_color;
+        margin: 20px 0;
+    }
+
+    .btnBanner {
+        @include flex_box_custom(center, center, 0);
+        padding-bottom: 55px;
+    }
+}
+
+.containerFilter {
+    @include flex_box_custom(space-between, center, 0px);
+
+    margin: 15px 0px;
+
+    .boxLeft {
+        @include flex_box_custom(center, center, 10px);
+        font-size: 14px;
+        color: $third_color;
+    }
+
+    .boxIconFilter {
+        @include flex_box_custom(center, center, 14px);
+        margin-left: 10px;
+    }
+
+    .selectBox {
+        border: 1px solid #e1e1e1;
+        padding: 8px 36px 8px 14px;
+        color: $secondary_color;
+        text-overflow: ellipsis;
+
+        appearance: none; // ẩn mũi tên mặc định để tự style
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+            linear-gradient(135deg, gray 50%, transparent 50%);
+        background-position: right 16px center, right 11px center;
+        background-size: 5px 5px, 5px 5px, 1px 1.5em;
+        background-repeat: no-repeat;
+    }
+
+    .selectBox:focus {
+        border-color: green;
+        outline: 0;
+        /* **KHÔNG** thay đổi background-position ở đây — chỉ đổi màu */
+        background-image: linear-gradient(135deg, transparent 50%, green 50%),
+            linear-gradient(45deg, green 50%, transparent 50%);
+        background-position: right 16px center, right 11px center;
+        background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    }
+
+    .selectBox.sort {
+        width: 170px;
+    }
+
+    .selectBox.show {
+        width: 84px;
+    }
+}
+
+.containerProducts {
+    @include flex_box_custom(flex-start, flex-start, 10px);
+    flex-wrap: wrap;
+}
+
+.sectionListProdut {
+    min-height: 400px;
+}

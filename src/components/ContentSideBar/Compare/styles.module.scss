@@ -1,0 +1,10 @@
+@use '@styles/mixins.module.scss' as *;
+
+.container {
+    @include flex_box_custom(space-between, space-between, 0px);
+    flex-direction: column;
+
+    height: 100%;
+
+    box-sizing: content-box;
+}
