@@ -1,0 +1,65 @@
+@use '@styles/mixins.module.scss' as *;
+@use '@styles/variables.module.scss' as *;
+
+.container {
+    @include flex_box_custom(space-between, space-between, 0px);
+    flex-direction: column;
+
+    height: 100%;
+
+    box-sizing: content-box;
+
+    .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    .btn {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .total {
+        @include flex_box_custom(space-between, center, 0px);
+        font-size: 14px;
+        color: $third-color;
+        margin-bottom: 10px;
+
+        .subtotal {
+            font-weight: 700;
+        }
+
+        .price {
+            font-weight: 400;
+        }
+    }
+
+    .containerProductCart {
+        position: relative;
+        overflow-y: auto;
+        flex: 1;
+        padding-right: 10px;
+
+        .overlayLoading {
+            @include flex_box_custom(center, center, 0px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .containerProductCart::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    .containerProductCart::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+    }
+}

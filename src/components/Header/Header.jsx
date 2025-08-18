@@ -3,9 +3,13 @@ import Menu from './Menu/Menu';
 import { dataBoxIcon, dataMenu } from './constant';
 import styles from './styles.module.scss';
 import Logo from '@icons/images/logo.webp';
-import ReloadIcon from '@icons/svgs/reloadIcon.svg';
-import HeartIcon from '@icons/svgs/heartIcon.svg';
-import CartIcon from '@icons/svgs/cartIcon.svg';
+import useScrollHanding from '@/hooks/useScrollHandling';
+import { useContext, useEffect, useState } from 'react';
+import classNames from 'classnames';
+import { SideBarContext } from '@/contexts/SidebarProvider';
+import { TfiReload } from 'react-icons/tfi';
+import { FiHeart } from 'react-icons/fi';
+import { FiShoppingCart } from 'react-icons/fi';
 
 function Header() {
     const {
@@ -13,10 +17,33 @@ function Header() {
         containerMenu,
         containerHeader,
         containerBox,
-        container
+        container,
+        fixedHeader,
+        topHeader,
+        boxCart,
+        quantity
     } = styles;
+
+    const { scrollPosition } = useScrollHanding();
+    const [stickPosition, setStickPosition] = useState(false);
+
+    const { setType, setIsOpen, listProductsCart } = useContext(SideBarContext);
+
+    const handleOnpenSideBar = (type) => {
+        setIsOpen(true);
+        setType(type);
+    };
+
+    useEffect(() => {
+        setStickPosition(scrollPosition > 80 ? true : false);
+    }, [scrollPosition]);
+
     return (
-        <div className={container}>
+        <div
+            className={classNames(container, topHeader, {
+                [fixedHeader]: stickPosition
+            })}
+        >
             <div className={containerHeader}>
                 <div className={containerBox}>
                     <div className={containerBoxIcon}>
@@ -48,33 +75,33 @@ function Header() {
                     <div className={containerMenu}>
                         {dataMenu.slice(3, dataMenu.length).map((item) => {
                             return (
-                                <Menu content={item.content} href={item.href} />
+                                <Menu
+                                    content={item.content}
+                                    href={item.href}
+                                    setIsOpen={setIsOpen}
+                                />
                             );
                         })}
                     </div>
 
                     <div className={containerBoxIcon}>
-                        <img
-                            src={ReloadIcon}
-                            alt='reloadIcon'
-                            width={22}
-                            height={22}
-                            style={{ marginRight: '5px' }}
+                        <TfiReload
+                            size={20}
+                            onClick={() => handleOnpenSideBar('compare')}
                         />
-                        <img
-                            src={HeartIcon}
-                            alt='heartIcon'
-                            width={22}
-                            height={22}
-                            style={{ marginLeft: '5px', marginRight: '5px' }}
+                        <FiHeart
+                            size={20}
+                            onClick={() => handleOnpenSideBar('wishList')}
                         />
-                        <img
-                            src={CartIcon}
-                            alt='cartIcon'
-                            width={22}
-                            height={22}
-                            style={{ marginLeft: '5px' }}
-                        />
+                        <div className={boxCart}>
+                            <FiShoppingCart
+                                size={20}
+                                onClick={() => handleOnpenSideBar('cart')}
+                            />
+                            <div className={quantity}>
+                                {listProductsCart.length}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,9 @@
+@use '@styles/variables.module.scss' as *;
+@use '@styles/mixins.module.scss' as *;
+
+.container {
+    @include flex_box_custom(space-between, center, 0px);
+
+    flex-wrap: wrap;
+    margin-top: 15px;
+}

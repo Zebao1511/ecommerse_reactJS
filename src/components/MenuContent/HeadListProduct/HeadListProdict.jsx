@@ -1,20 +1,29 @@
 import MainLayout from '@components/Layout/Layout';
-import CountdownTimer from '@components/Timer/CountTimer';
 import styles from './styles.module.scss';
 import CountdownBanner from '@components/CountdownBanner/CountdownBanner';
+import ProductItem from '@components/ProductItem/ProductItem';
 
-function HeadListProduct() {
+function HeadListProduct({ data }) {
     const { container, title } = styles;
-    const targetData = '2025-12-31T23:59:59'; // Thay đổi thời gian đích theo nhu cầu
+
     return (
         <>
             <MainLayout>
-                {/* <CountdownTimer targetData={targetData} /> */}
                 <div className={container}>
                     <CountdownBanner />
                     <div className={title}>
-                        <div>1</div>
-                        <div>2</div>
+                        {data.map((item) => {
+                            return (
+                                <ProductItem
+                                    key={item.id}
+                                    src={item.images[0]}
+                                    prevSrc={item.images[1]}
+                                    name={item.name}
+                                    price={item.price}
+                                    detail={item}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </MainLayout>

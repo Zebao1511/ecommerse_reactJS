@@ -2,9 +2,10 @@
 @use '@styles/mixins.module.scss' as *;
 
 .container {
-    @include flex_box_custom(space-between, center, 0);
+    @include flex_box_custom(space-between, center, 15px);
+    margin-top: 30px;
 }
 
 .title {
-    @include flex_box_custom(center, center, 0);
+    @include flex_box_custom(center, center, 20px);
 }

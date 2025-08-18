@@ -3,11 +3,27 @@
 
 .container {
     @include flex_box_custom(center, center, 0px);
-    background-color: #ebe7e4;
-    position: absolute;
-    top: 0;
+    // background-color: #ebe7e4;
+
     left: 0;
     right: 0;
+}
+
+.topHeader {
+    position: absolute;
+    top: 0;
+}
+
+.fixedHeader {
+    position: fixed;
+    top: -83px;
+    background-color: #ffffffe5;
+    z-index: 999;
+    box-shadow: 2px 0 12px 0px rgba(0, 0, 0, 0.15);
+
+    transform: translateY(83px);
+    backdrop-filter: blur(5px);
+    transition: transform 0.7s ease-out;
 }
 
 .containerHeader {
@@ -19,18 +35,20 @@
 }
 
 .containerBoxIcon {
-    @include flex_box_custom(center, center, 10px);
+    @include flex_box_custom(center, center, 20px);
     width: fit-content;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .containerBox {
     @include flex_box_custom(center, center, 20px);
-    width: fit-content;
 }
 
 .containerMenu {
     @include flex_box_custom(center, center, 40px);
-    width: fit-content;
     font-size: 15px;
 }
 
@@ -50,6 +68,15 @@
     padding-top: 10px;
     font-size: 15px;
     color: $primary_color;
+    position: relative;
+
+    .subMenu {
+        position: absolute;
+        background-color: white;
+        width: 100%;
+        padding: 10px;
+        top: 40px;
+    }
 }
 
 .menu::after {
@@ -69,4 +96,21 @@
 .menu:hover::after {
     opacity: 1;
     transform: scale(1);
+}
+
+.boxCart {
+    position: relative;
+
+    .quantity {
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background-color: $primary_color;
+        color: white;
+        @include radius_common(50%);
+        width: 15px;
+        height: 15px;
+        font-size: 10px;
+        @include flex_box_custom(center, center, 0px);
+    }
 }
